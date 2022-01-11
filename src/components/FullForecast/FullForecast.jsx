@@ -1,5 +1,5 @@
 import './FullForecast.css';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate  } from "react-router-dom";
 import { Spin } from 'antd';
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react';
@@ -8,6 +8,7 @@ import { forecastCity } from "../../redux/forecastCitySlice"
 
 const FullForecast = () => {
     let params = useParams();
+    let navigate = useNavigate();
     const dispatch = useDispatch()
     const cities = useSelector(state => state.cities.data)
     const timeRange = useSelector(state => state.city.data)
@@ -16,9 +17,14 @@ const FullForecast = () => {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        if(cities.length === 0){
+            navigate("/");
+            return
+        }
         const arrCities = cities
         const city = params.city
         const cityCoord = arrCities.find(item => item.city === city)
+        console.log(city, arrCities);
         dispatch(forecastCity(cityCoord.coord))
     },[])
 

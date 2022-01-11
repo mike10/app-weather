@@ -15,14 +15,12 @@ import {
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/:city" element={<FullForecast />} />
-        
-      </Routes>
-    </BrowserRouter>
-      {/* <App /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route index  path="/" element={<App />} />
+          <Route path=":city" element={<FullForecast />} />
+        </Routes>
+      </BrowserRouter>
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')
