@@ -1,0 +1,19 @@
+.full-forecast{
+    text-align: center;
+    padding: 0 10%;
+}
+
+.full-forecast__section{
+    
+    border-left: darkgrey 2px solid;
+    border-right: darkgrey 2px solid;
+    padding: 0 20px;
+}
+
+.full-forecast__div{
+    background-color: #888;
+    height: 30px;
+    width: 50px;
+    padding: 5px;
+    color: #fff;
+}
